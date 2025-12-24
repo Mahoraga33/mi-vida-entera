@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Ti ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    height:100vh;
+    background:linear-gradient(135deg,#ff4d6d,#ff8fa3);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    text-align:center;
+    overflow:hidden;
+}
+
+.container{
+    max-width:650px;
+    padding:30px;
+    background:rgba(255,255,255,0.15);
+    border-radius:20px;
+    backdrop-filter:blur(5px);
+}
+
+h1{
+    font-size:2.3rem;
+    margin-bottom:20px;
+}
+
+p{
+    font-size:1.1rem;
+    line-height:1.6;
+}
+
+button{
+    margin-top:20px;
+    padding:15px 30px;
+    font-size:1.1rem;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    background:white;
+    color:#ff4d6d;
+    transition:.2s;
+}
+
+button:hover{
+    transform:scale(1.05);
+    box-shadow:0 10px 20px rgba(0,0,0,.2);
+}
+
+.message{
+    display:none;
+    margin-top:20px;
+}
+
+.heart{
+    position:absolute;
+    font-size:20px;
+    animation:floatUp 4s linear forwards;
+}
+
+@keyframes floatUp{
+    0%{transform:translateY(0);opacity:1}
+    100%{transform:translateY(-800px);opacity:0}
+}
+</style>
+</head>
+
+<body>
+
+<audio id="music" loop>
+    <source src="amor.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+    <h1>Para el amor de mi vida ❤️</h1>
+
+    <button onclick="startLove()">Presiona aquí 💕</button>
+
+    <div class="message" id="message">
+        <p>
+            Amor mío,<br><br>
+            Desde que llegaste a mi vida todo cambió. Contigo entendí que el amor
+            es cuidado, respeto y elección diaria. Gracias por ser mi paz,
+            mi alegría y mi hogar.<br><br>
+            Hay algo más importante que quiero preguntarte…
+        </p>
+
+        <button onclick="goProposal()">Tengo algo más que preguntarte 💍</button>
+    </div>
+</div>
+
+<script>
+function startLove(){
+    document.getElementById("music").play();
+    document.getElementById("message").style.display="block";
+
+    for(let i=0;i<70;i++){
+        const heart=document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML="❤️";
+        heart.style.left=Math.random()*100+"vw";
+        heart.style.bottom="-20px";
+        heart.style.fontSize=(Math.random()*25+15)+"px";
+        heart.style.animationDuration=(Math.random()*2+3)+"s";
+        document.body.appendChild(heart);
+        setTimeout(()=>heart.remove(),5000);
+    }
+}
+
+function goProposal(){
+    window.location.href="wilianny.html";
+}
+</script>
+
+</body>
+</html>
